@@ -2,7 +2,7 @@ package com.selenium.vo;
 
 public class CategoryVO {
 	private int mcno;
-	private String title,link;
+	private String title,link ;
 	public int getMcno() {
 		return mcno;
 	}

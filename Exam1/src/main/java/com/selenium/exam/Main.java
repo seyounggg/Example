@@ -13,7 +13,7 @@ import com.selenium.vo.CategoryVO;
 public class Main {
 	private WebDriver driver;
 	private WebElement element;
-	private String url;
+	private String  url;
 	
 	public static String Web_driver_Id="webdriver.chrome.driver";
 	public static String Web_driver_Path="/Users/seyeong/Desktop/Example/chromedriver";
