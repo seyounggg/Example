@@ -1,29 +1,9 @@
 package com.sist.vo;
-/*
- 이름                                      널?      유형
- ----------------------------------------- -------- ----------------------------
- FINO                                      NOT NULL NUMBER
- MCNO                                               NUMBER
- POSTER                                    NOT NULL VARCHAR2(4000)
- NAME                                      NOT NULL VARCHAR2(200)
- SCORE                                     NOT NULL NUMBER(2,1)
- ADDRESS                                   NOT NULL VARCHAR2(1000)
- PHONE                                     NOT NULL VARCHAR2(20)
- TYPE                                      NOT NULL VARCHAR2(100)
- PRICE                                              VARCHAR2(100)
- TIME                                               VARCHAR2(100)
- MENU                                               VARCHAR2(4000)
- GOOD                                               NUMBER
- SOSO                                               NUMBER
- BAD                                                NUMBER
- JJIM_COUNT                                         NUMBER
- LIKE_COUNT                                         NUMBER
- RDAY                                               VARCHAR2(100)
- */
+
 public class MangoInfoVO {
-	 private int fino,mcno,good,soso,bad,jjim_count,like_count;
+	 private int fino,mcno,like_count,hit;
 	 private double score;
-	 private String poster,name,address,phone,type,price,time,menu,rday;
+	 private String poster,name,address,phone,type,price,parking,time,menu;
 	public int getFino() {
 		return fino;
 	}
@@ -36,35 +16,17 @@ public class MangoInfoVO {
 	public void setMcno(int mcno) {
 		this.mcno = mcno;
 	}
-	public int getGood() {
-		return good;
-	}
-	public void setGood(int good) {
-		this.good = good;
-	}
-	public int getSoso() {
-		return soso;
-	}
-	public void setSoso(int soso) {
-		this.soso = soso;
-	}
-	public int getBad() {
-		return bad;
-	}
-	public void setBad(int bad) {
-		this.bad = bad;
-	}
-	public int getJjim_count() {
-		return jjim_count;
-	}
-	public void setJjim_count(int jjim_count) {
-		this.jjim_count = jjim_count;
-	}
 	public int getLike_count() {
 		return like_count;
 	}
 	public void setLike_count(int like_count) {
 		this.like_count = like_count;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	public double getScore() {
 		return score;
@@ -108,6 +70,12 @@ public class MangoInfoVO {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+	public String getParking() {
+		return parking;
+	}
+	public void setParking(String parking) {
+		this.parking = parking;
+	}
 	public String getTime() {
 		return time;
 	}
@@ -120,12 +88,5 @@ public class MangoInfoVO {
 	public void setMenu(String menu) {
 		this.menu = menu;
 	}
-	public String getRday() {
-		return rday;
-	}
-	public void setRday(String rday) {
-		this.rday = rday;
-	}
 	 
-	
 }

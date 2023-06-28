@@ -95,7 +95,6 @@ public class DataCollection {
 					    image = image.substring(0, image.lastIndexOf("^"));
 					    image = image.replace("&", "#");
 					}
-
 					
 					String addr="no",phone="no",type="no",price="no",parking="no",time="no",menu="no";
 					Elements etc=doc.select("table.info tr th");
@@ -125,6 +124,14 @@ public class DataCollection {
 						}
 					}
 					
+					Element hit = doc.selectFirst("span.cnt.hit");
+					String hitText = hit.text().replaceAll(",", "");
+					int hits = Integer.parseInt(hitText);
+					
+					Element like = doc.selectFirst("span.cnt.review");
+					String likeText = like.text().replaceAll(",", "");
+					int likes = Integer.parseInt(likeText);
+					
 		            //System.out.println("Index: " + index + ", href: " + href);
 					System.out.println("카테고리 번호:"+mvo.getMcno());
 					System.out.println("업체명:"+name.text());
@@ -137,14 +144,35 @@ public class DataCollection {
 					System.out.println("주차:"+parking);
 					System.out.println("영업시간:"+time);
 					System.out.println("메뉴:"+menu);
+					System.out.println("히트:"+hits);
+					System.out.println("좋아요:"+likes);
 					System.out.println("===========================================");
-		            index++;
+					
+					mvo.setName(namevalue);
+					mvo.setScore(score1);
+					mvo.setPoster(image);
+					mvo.setAddress(addr);
+					mvo.setPhone(phone);
+					mvo.setType(type);
+					mvo.setPrice(price);
+					mvo.setParking(parking);
+					mvo.setTime(time);
+					mvo.setMenu(menu);
+					mvo.setHit(hits);
+					mvo.setLike_count(likes);
+					
+					dao.MangoInfoData(mvo);
+		            
+					//index++;
 		        }
+		        
 		    }
+		    
 		} catch (Exception e) {
 		    e.printStackTrace();
+		    
 		}
-		System.out.println("출력완료!!");
+		System.out.println("저장완료!!");
 	}
 	
 	public static void main(String[] args) {

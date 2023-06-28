@@ -65,31 +65,27 @@ public class MangoDAO {
 	public void MangoInfoData(MangoInfoVO vo) {
 		try {
 			getConnection();
-			/*
-			 이름                                      널?      유형
-			 ----------------------------------------- -------- ----------------------------
-			 FINO                                      NOT NULL NUMBER
-			 MCNO                                               NUMBER
-			 POSTER                                             VARCHAR2(4000)
-			 NAME                                      NOT NULL VARCHAR2(200)
-			 SCORE                                     NOT NULL NUMBER(2,1)
-			 ADDRESS                                   NOT NULL VARCHAR2(1000)
-			 PHONE                                     NOT NULL VARCHAR2(20)
-			 TYPE                                      NOT NULL VARCHAR2(100)
-			 PRICE                                              VARCHAR2(100)
-			 TIME                                               VARCHAR2(100)
-			 MENU                                               VARCHAR2(4000)
-			 GOOD                                               NUMBER
-			 SOSO                                               NUMBER
-			 BAD                                                NUMBER
-			 JJIM_COUNT                                         NUMBER
-			 LIKE_COUNT                                         NUMBER
-			 RDAY                                               VARCHAR2(100)
-			 */
-			String sql="INSERT INRO food_info VALUSE(fi_fino_pk.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+			String sql="INSERT INTO food_info "
+					+ "VALUES(fi_fino_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps=conn.prepareStatement(sql);
-			ps.setInt(1, vo.getMcno());
-			ps.setString(2, vo.getPoster());
+			
+	        ps.setInt(1, vo.getMcno());
+	        ps.setString(2, vo.getPoster());
+	        ps.setString(3, vo.getName());
+	        ps.setDouble(4, vo.getScore());
+	        ps.setString(5, vo.getAddress());
+	        ps.setString(6, vo.getPhone());
+	        ps.setString(7, vo.getType());
+	        ps.setString(8, vo.getPrice());
+	        ps.setString(9, vo.getParking());
+	        ps.setString(10, vo.getTime());
+	        ps.setString(11, vo.getMenu());
+	        ps.setInt(12, vo.getHit());
+	        ps.setInt(13, vo.getLike_count());
+			
+			//실행요청!!
+			ps.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
